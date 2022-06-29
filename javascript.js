@@ -45,10 +45,24 @@ const tic_tac_toe = {
         this.game_over = true;
     },
 
-    reset: function() {
+    is_game_over() {
+        return !this.board.includes('');
+    },
+
+    start: function() {
         this.board.fill('');
         this.draw();
         this.game_over = false;
+    },
+
+    restart() {
+        if (this.is_game_over() || this.gameover) {
+            this.start();
+            console.log('este jogo foi reiniciado!')
+        } else if (confirm('Tem certeza que quer reiniciar?')) {
+            this.start();
+            console.log('este jogo foi reiniciado!')
+        }
     },
 
     check_winning_sequece: function(simbols) {
@@ -57,8 +71,7 @@ const tic_tac_toe = {
                 this.board[this.winning_sequence[i][1] ] == simbols &&
                 this.board[this.winning_sequence[i][2] ] == simbols) {
                     alert(`O vencedor é o ${simbols}`);
-                    return i;
-                    
+                    return i;  
                 }
         };
         return -1;
@@ -74,4 +87,3 @@ const tic_tac_toe = {
         this.container_element.innerHTML = content
     }
 }
-

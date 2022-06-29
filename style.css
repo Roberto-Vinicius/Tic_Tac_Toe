@@ -39,7 +39,6 @@ h1 {
 }
 
 button {
-    display: none;
     background-color: #01fff4;
     color: black;
     font-size: 1rem;
@@ -54,7 +53,6 @@ button {
     text-decoration: none;
     color: #01fff4;
     margin-bottom: 10px;
-    position: inherit;
 }
 
 a:hover {
