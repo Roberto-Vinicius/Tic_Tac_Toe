@@ -43,10 +43,27 @@ button {
     color: black;
     font-size: 1rem;
     padding: 10px 15px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+.victories {
+    background-color: #4B4B4B;
+    border: 2px solid #01fff4;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 80%; 
+    max-width: 300px;
+    text-align: center;
+}
+
+.victories p {
+    margin-top: 0;
+    font-size: 18px;
+    color: #01fff4;
 }
 
 .footer {

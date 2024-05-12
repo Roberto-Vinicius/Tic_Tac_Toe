@@ -16,6 +16,10 @@
     <div>
         <button onclick="tic_tac_toe.restart()" title="Restart this game">Reiniciar</button>
     </div>
+    <div class="victories">
+        <p>Vitórias X: <span id="playerXWins">0</span></p>
+        <p>Vitórias O: <span id="playerOWins">0</span></p>
+    </div>
 
     <footer>
         <p class="footer">
@@ -24,7 +28,9 @@
     </footer>
     <script src="javascript.js"></script>
     <script>
-        tic_tac_toe.init(document.querySelector('.game'));
+        const playerXElement = document.getElementById('playerXWins');
+        const playerOElement = document.getElementById('playerOWins');
+        tic_tac_toe.init(document.querySelector('.game'), playerXElement, playerOElement);
         tic_tac_toe.start();
     </script>
 </body>

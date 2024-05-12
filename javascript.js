@@ -4,7 +4,7 @@ const tic_tac_toe = {
         options: ['X', 'O'],
         turn_index: 0,
         change: function() {
-            this.turn_index = this.turn_index === 0 ? 1 : 0
+            this.turn_index = this.turn_index === 0 ? 1 : 0;
         }
     },
     container_element: null,
@@ -22,6 +22,11 @@ const tic_tac_toe = {
 
     init: function(container) {
         this.container_element = container;
+    },
+
+    victories: {
+        X: 0,
+        O: 0
     },
 
     make_play: function(position) {
@@ -58,10 +63,10 @@ const tic_tac_toe = {
     restart() {
         if (this.is_game_over() || this.gameover) {
             this.start();
-            console.log('este jogo foi reiniciado!')
+            alert('este jogo foi reiniciado!')
         } else if (confirm('Tem certeza que quer reiniciar?')) {
             this.start();
-            console.log('este jogo foi reiniciado!')
+            alert('este jogo foi reiniciado!')
         }
     },
 
@@ -70,11 +75,20 @@ const tic_tac_toe = {
             if( this.board[this.winning_sequence[i][0] ] == simbols &&  
                 this.board[this.winning_sequence[i][1] ] == simbols &&
                 this.board[this.winning_sequence[i][2] ] == simbols) {
+                    console.log(this.victories[simbols]++);
+                    this.updateWinCounters();
                     alert(`O vencedor é o ${simbols}`);
                     return i;  
                 }
         };
         return -1;
+    },
+
+    updateWinCounters: function() {
+        const playerXElement = document.getElementById('playerXWins');
+        const playerOElement = document.getElementById('playerOWins');
+        playerXElement.textContent = this.victories.X;
+        playerOElement.textContent = this.victories.O;
     },
 
     draw: function() {
@@ -85,5 +99,5 @@ const tic_tac_toe = {
         }
 
         this.container_element.innerHTML = content
-    }
+    },
 }
