@@ -49,6 +49,12 @@ button {
     cursor: pointer;
 }
 
+#currentPlayerTurn {
+    font-size: 20px;
+    color: #01fff4;
+    margin-bottom: 5px;
+}
+
 .victories {
     background-color: #4B4B4B;
     border: 2px solid #01fff4;
@@ -60,11 +66,32 @@ button {
     text-align: center;
 }
 
-.victories p {
-    margin-top: 0;
-    font-size: 18px;
+.victories h2 {
+    font-size: 22px;
     color: #01fff4;
+    border-bottom: 2px solid #01fff4;
+    padding-bottom: 5px;
 }
+
+.player {
+    font-size: 22px;
+    display: inline-block; 
+    vertical-align: middle;     
+}
+
+.playerX {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.playerO {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 .footer {
     text-decoration: none;

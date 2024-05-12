@@ -39,6 +39,7 @@ const tic_tac_toe = {
                 this.game_is_over();
             } else {
                 this.simbols.change();
+                this.showCurrentPlayerTurn(); 
             }
             return true;
         } else {
@@ -58,6 +59,7 @@ const tic_tac_toe = {
         this.board.fill('');
         this.draw();
         this.game_over = false;
+        this.showCurrentPlayerTurn();
     },
 
     restart() {
@@ -75,7 +77,7 @@ const tic_tac_toe = {
             if( this.board[this.winning_sequence[i][0] ] == simbols &&  
                 this.board[this.winning_sequence[i][1] ] == simbols &&
                 this.board[this.winning_sequence[i][2] ] == simbols) {
-                    console.log(this.victories[simbols]++);
+                    this.victories[simbols]++;
                     this.updateWinCounters();
                     alert(`O vencedor é o ${simbols}`);
                     return i;  
@@ -100,4 +102,12 @@ const tic_tac_toe = {
 
         this.container_element.innerHTML = content
     },
+
+    showCurrentPlayerTurn: function() {
+        const turnPlayer = document.querySelector('.player');
+        const currentPlayerSymbol = this.simbols.options[this.simbols.turn_index];
+        turnPlayer.textContent = currentPlayerSymbol;
+        turnPlayer.classList.remove('playerX', 'playerO');
+        turnPlayer.classList.add(`player${currentPlayerSymbol}`);
+    }
 }
